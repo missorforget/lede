@@ -343,6 +343,17 @@ define U-Boot/station-p2-rk3568
     firefly_station-p2
 endef
 
+define U-Boot/nlnet-xgp-rk3568
+  BUILD_SUBTARGET:=armv8
+  NAME:=NLnet XGP Board
+  BUILD_DEVICES:= \
+    nlnet_xgp
+  DEPENDS:=+PACKAGE_u-boot-nlnet-xgp-rk3568:arm-trusted-firmware-rk3568
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=rk3568_bl31_v1.43.elf
+  DDR:=rk3568_ddr_1560MHz_v1.18.bin
+endef
+
 # RK3588 boards
 
 define U-Boot/rk3588/Default
@@ -437,6 +448,7 @@ UBOOT_TARGETS := \
   rock-3a-rk3568 \
   rock-3b-rk3568 \
   station-p2-rk3568 \
+  nlnet-xgp-rk3568 \
   generic-rk3588 \
   nanopc-t6-rk3588 \
   orangepi-5-plus-rk3588 \
